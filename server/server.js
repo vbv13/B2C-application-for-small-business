@@ -13,6 +13,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());     //to parse JSON, whenever we get a request, we gonna be able to read it
 app.use(cookieParser());
 
+//Models
+const { User }  = require('./models/user');
+
+
+//=====================
+//                 USERS
+//=====================
+
+app.post('/api/users/register', (req, res) => {
+    res.status(200);
+});
+
 const port = process.env.PORT || 3002;
 
 app.listen(port, ()=>{

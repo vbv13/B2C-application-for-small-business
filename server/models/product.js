@@ -31,9 +31,9 @@ const productSchema = mongoose.Schema({
             required: true,
             type: Boolean 
         },
-        type: {
+        sort: {
             type: Schema.Types.ObjectId,
-            ref: 'Type',
+            ref: 'Sort',
             required: true            
         },
         frets: {

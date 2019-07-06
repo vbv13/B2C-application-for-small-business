@@ -27,6 +27,31 @@ const { admin } = require('./middleware/admin');
 //                 PRODUCTS
 //=====================
 
+
+/// /api/product/article?id=HSHSHSKSK,JSJSJSJS,SDSDHHSHDS,JSJJSDJ&type=single
+app.get('api/product/articles_by_id', (req, res) => {
+    let type = req.query.type;
+    let items = req.query.id;
+
+    if(type === 'array') {
+        let ids = req.query.id.split(',');
+        items = [];
+        items = ids.map( item => {
+            return mongoose.Types.ObjectId(item);
+        })
+    }    
+
+    Product
+    .find({ 'id': {$in:items}})      //such entry cause it can be one item or array of multiple items -we don't know
+    .populate('brand')
+    .populate('sort')
+    .exec((err, docs) => {
+        return res.status(200).send(docs)
+    })
+});
+
+    
+
 app.post('/api/product/article', auth, admin, (req, res) => {
     const product = new Product(req.body);
 

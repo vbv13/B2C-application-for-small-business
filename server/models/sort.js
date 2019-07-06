@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const typeSchema = mongoose.Schema({
+const sortSchema = mongoose.Schema({
     name: {
         required: true,
         type: String,
@@ -9,6 +9,6 @@ const typeSchema = mongoose.Schema({
     }
 })
 
-const Type = mongoose.model('Type', typeSchema);
+const Sort = mongoose.model('Sort', sortSchema);
 
-module.exports = { Type }
+module.exports = { Sort }

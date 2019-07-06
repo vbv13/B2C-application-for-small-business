@@ -16,7 +16,7 @@ app.use(cookieParser());
 //Models
 const { User }  = require('./models/user');
 const { Brand } = require('./models/brand');
-const { Type } = require('./models/type');
+const { Sort } = require('./models/sort');
 const { Product } = require('./models/product');
 
 //Middlewares
@@ -40,25 +40,25 @@ app.post('/api/product/article', auth, admin, (req, res) => {
 });
 
 //=====================
-//                 TYPES
+//                 SORTS
 //=====================
 
-app.post('/api/product/type', auth, admin, (req, res) => {
-    const type = new Type(req.body);
+app.post('/api/product/sort', auth, admin, (req, res) => {
+    const sort = new Sort(req.body);
 
-    type.save((err, doc) => {
+    sort.save((err, doc) => {
         if(err) return res.json({success: false, err});
         res.status(200).json({
             success: true,
-            type: doc
+            sort: doc
         })
     })
 });
 
-app.get('/api/product/types', (req, res) => {
-    Type.find({}, (err, types) => {
+app.get('/api/product/sorts', (req, res) => {
+    Sort.find({}, (err, sorts) => {
         if(err) return res.status(400).send(err);
-        res.status(200).send(types);
+        res.status(200).send(sortes);
     })
 })
 

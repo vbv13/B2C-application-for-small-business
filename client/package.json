@@ -28,11 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": {
-    "/api/": {
-      "target":"http://localhost:3002"
-    }
-  },
+  "proxy": "http://localhost:3002",
+
   "eslintConfig": {
     "extends": "react-app"
   },

@@ -24,6 +24,7 @@ const RegisterLogin = () => {
                         <p>Jeżeli masz konto, zaloguj się</p>
                         Zaloguj
                     </div>
+                    <Login/>
                 </div>
             </div>
         </div>

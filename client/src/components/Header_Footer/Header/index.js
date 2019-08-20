@@ -7,15 +7,15 @@ class Header extends Component {
                 <div className="container">
                     <div className="left">
                         <div className="logo">
-                            Garden
+                            firma xyz
                         </div>
                     </div>
                     <div className="right">
                         <div className="top">
-                            LINKS
+                            LINK1
                         </div>
                         <div className="bottom">
-                            LINKS
+                            LINK2
                         </div>
                     </div>
                 </div>

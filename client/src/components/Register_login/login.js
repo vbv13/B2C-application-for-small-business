@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Formfield from '../utils/Form/formfield';
+import FormField from '../utils/Form/formfield';
 import { update, generateData, isFormValid } from '../utils/Form/formActions';
 import { withRouter } from 'react-router-dom';
 
@@ -54,7 +54,7 @@ class Login extends Component {
         })
     }
 
-    submitForm(event){
+    submitForm = (event) => {
         event.preventDefault();
         
         let dataToSubmit = generateData(this.state.formdata, 'login');
@@ -62,15 +62,15 @@ class Login extends Component {
 
         if(formIsValid){
             this.props.dispatch(loginUser(dataToSubmit)).then(response => {
-                if(response.payload.loginSucces){
-                    console.log(response.payload)
+                if(response.payload.loginSuccess){
+                    console.log(response.payload);
                     this.props.history.push('/user/dashboard')  //this is how we send a user to a new route using react-router
                 }else{
                     this.setState({
                         formError: true
                     })
                 }
-            })
+            });
 
         } else {
             this.setState({
@@ -83,12 +83,12 @@ class Login extends Component {
         return (
             <div className="signin_wrapper">
                 <form onSubmit={(event) => this.submitForm(event)}>
-                    <Formfield
+                    <FormField
                         id={'email'}
                         formdata={this.state.formdata.email}
                         change={(element) => this.updateForm(element)}
                     />
-                    <Formfield
+                    <FormField
                         id={'password'}
                         formdata={this.state.formdata.password}
                         change={(element) => this.updateForm(element)}
@@ -96,7 +96,7 @@ class Login extends Component {
 
                     { this.state.formError ? 
                         <div className='error_label'>
-                            Please check yr data
+                            Sprawdź wprowadzone dane
                         </div>
                     :null}  
                     <button onClick={(event) => this.submitForm(event)}>

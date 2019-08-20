@@ -11,11 +11,11 @@ const Footer = () => {
         <footer className="bck_b_dark">
             <div className="container">
                 <div className="logo">
-                    Garden
+                    firma xyz
                 </div>
                 <div className="wrapper">
                     <div className="left">
-                        <h2>Contact information</h2>
+                        <h2>Informacje kontaktowe</h2>
                         <div className="business_nfo">
                             <div className="tag">
                                 <FontAwesomeIcon
@@ -23,7 +23,7 @@ const Footer = () => {
                                     className="icon"
                                 />
                                 <div className="nfo">
-                                    <div>Address</div>
+                                    <div>Adres</div>
                                     <div>XYZ 23</div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ const Footer = () => {
                                     className="icon"
                                 />
                                 <div className="nfo">
-                                    <div>Phone</div>
+                                    <div>Telefon</div>
                                     <div>123456789</div>
                                 </div>
                             </div>
@@ -43,8 +43,8 @@ const Footer = () => {
                                     className="icon"
                                 />
                                 <div className="nfo">
-                                    <div>Working hours</div>
-                                    <div>Mon-Sun/ 8am-7pm</div>
+                                    <div>Godziny otwarcia</div>
+                                    <div>Pon-Sb/ 8-19</div>
                                 </div>
                             </div>
                             <div className="tag">
@@ -54,16 +54,16 @@ const Footer = () => {
                                 />
                                 <div className="nfo">
                                     <div>Email</div>
-                                    <div>info@garden.com</div>
+                                    <div>info@xyz.com</div>
                                 </div>
                             </div>
                         </div>
                     </div> 
                     <div className="left">
-                        <h2>Be the first to know</h2>
+                        <h2>Bądź na bieżąco z informacjami</h2>
                         <div>
                             <div>
-                            Get all the latest information on events, sales and offers.You can miss out.
+                            Zdobądź wszystkie najnowsze informacje o wydarzeniach, przecenach i ofercie. Nie możesz tego przegabić
                             </div>
                         </div>
                     </div>      

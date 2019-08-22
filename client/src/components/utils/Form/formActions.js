@@ -2,13 +2,13 @@ export const validate = (element, formdata = []) => {
     let error = [true, ''];
 
     if(element.validation.email){
-        const valid = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b/.test(element.value);
-        const message = `${!valid ? 'Type valid email':''}`;
+        const valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(element.value);
+        const message = `${!valid ? 'Wpisz poprawny email':''}`;
         error = !valid ? [valid, message] : error;
     }
 
     if(element.validation.confirm){
-        const valid = element.value.trim() === formdata[element.validation.confirm];
+        const valid = element.value.trim() === formdata[element.validation.confirm].value;
         const message = `${!valid ? 'Wprowadzone hasła nie pasują':''}`;
         error = !valid ? [valid, message] : error;
     }

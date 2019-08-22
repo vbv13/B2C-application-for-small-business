@@ -19,7 +19,7 @@ class Register extends Component {
                 config:{
                     name: 'name_input',
                     type: 'text',
-                    placeholder: 'Enter your name'
+                    placeholder: 'Wpisz swoje imię'
                 },
                 validation:{
                     required: true
@@ -34,7 +34,7 @@ class Register extends Component {
                 config:{
                     name: 'lastname_input',
                     type: 'text',
-                    placeholder: 'Enter your lastname'
+                    placeholder: 'Wpisz swoje nazwisko'
                 },
                 validation:{
                     required: true
@@ -49,7 +49,7 @@ class Register extends Component {
                 config:{
                     name: 'email_input',
                     type: 'email',
-                    placeholder: 'Enter your email'
+                    placeholder: 'Wpisz swój email'
                 },
                 validation:{
                     required: true,
@@ -65,7 +65,7 @@ class Register extends Component {
                 config:{
                     name: 'password_input',
                     type: 'password',
-                    placeholder: 'Enter your password'
+                    placeholder: 'Wpisz swoje hasło'
                 },
                 validation:{
                     required: true
@@ -80,7 +80,7 @@ class Register extends Component {
                 config:{
                     name: 'confirm_password_input',
                     type: 'password',
-                    placeholder: 'Confirm your password'
+                    placeholder: 'Potwierdź swoje hasło'
                 },
                 validation:{
                     required: true,
@@ -138,7 +138,7 @@ class Register extends Component {
                     <div className='register_login_container'>
                         <div className='left'>
                             <form onSubmit={(event) => this.submitForm(event)}>
-                            <h2>Personal information</h2>
+                            <h2>Informacje osobiste</h2>
                             <div className="form_block_two">
                                     <div className="block">
                                         <Formfield
@@ -162,7 +162,7 @@ class Register extends Component {
                                         change={(element)=> this.updateForm(element)}
                                     />
                                 </div>
-                                <h2>Verify password</h2>
+                                <h2>Ustaw hasło</h2>
                                 <div className="form_block_two">
                                     <div className="block">
                                         <Formfield

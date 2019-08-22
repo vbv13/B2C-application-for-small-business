@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormField from '../utils/Form/FormField';
+import Formfield from '../utils/Form/formfield';
 import { update, generateData, isFormValid } from '../utils/Form/formActions';
 
 import Dialog from '@material-ui/core/Dialog';
@@ -141,14 +141,14 @@ class Register extends Component {
                             <h2>Personal information</h2>
                             <div className="form_block_two">
                                     <div className="block">
-                                        <FormField
+                                        <Formfield
                                             id={'name'}
                                             formdata={this.state.formdata.name}
                                             change={(element)=> this.updateForm(element)}
                                         />
                                     </div>
                                     <div className="block">
-                                        <FormField
+                                        <Formfield
                                             id={'lastname'}
                                             formdata={this.state.formdata.lastname}
                                             change={(element)=> this.updateForm(element)}
@@ -156,7 +156,7 @@ class Register extends Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <FormField
+                                    <Formfield
                                         id={'email'}
                                         formdata={this.state.formdata.email}
                                         change={(element)=> this.updateForm(element)}
@@ -165,14 +165,14 @@ class Register extends Component {
                                 <h2>Verify password</h2>
                                 <div className="form_block_two">
                                     <div className="block">
-                                        <FormField
+                                        <Formfield
                                             id={'password'}
                                             formdata={this.state.formdata.password}
                                             change={(element)=> this.updateForm(element)}
                                         />
                                     </div>
                                     <div className="block">
-                                        <FormField
+                                        <Formfield
                                             id={'confirmPassword'}
                                             formdata={this.state.formdata.confirmPassword}
                                             change={(element)=> this.updateForm(element)}

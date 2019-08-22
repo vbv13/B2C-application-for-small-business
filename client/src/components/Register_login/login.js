@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormField from '../utils/Form/formfield';
+import Formfield from '../utils/Form/formfield';
 import { update, generateData, isFormValid } from '../utils/Form/formActions';
 import { withRouter } from 'react-router-dom';
 
@@ -83,12 +83,12 @@ class Login extends Component {
         return (
             <div className="signin_wrapper">
                 <form onSubmit={(event) => this.submitForm(event)}>
-                    <FormField
+                    <Formfield
                         id={'email'}
                         formdata={this.state.formdata.email}
                         change={(element) => this.updateForm(element)}
                     />
-                    <FormField
+                    <Formfield
                         id={'password'}
                         formdata={this.state.formdata.password}
                         change={(element) => this.updateForm(element)}

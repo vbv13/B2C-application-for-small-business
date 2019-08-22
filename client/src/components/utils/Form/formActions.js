@@ -9,13 +9,13 @@ export const validate = (element, formdata = []) => {
 
     if(element.validation.confirm){
         const valid = element.value.trim() === formdata[element.validation.confirm];
-        const message = `${!valid ? 'Type valid password':''}`;
+        const message = `${!valid ? 'Wprowadzone hasła nie pasują':''}`;
         error = !valid ? [valid, message] : error;
     }
 
     if(element.validation.required){
         const valid = element.value.trim() !== '';
-        const message = `${!valid ? 'This field is required':''}`;
+        const message = `${!valid ? 'To pole jest wymagane':''}`;
         error = !valid ? [valid, message] : error;
     }
 
@@ -39,6 +39,10 @@ export const update = (element, formdata, formName) => {
         newElement.validationMessage = validData[1];
     }
 
+    newElement.touched = element.blur;
+    newFormdata[element.id] = newElement;
+
+    return newFormdata;
 }
 
 export const generateData = (formdata, formName) => {

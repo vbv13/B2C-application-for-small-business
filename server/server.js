@@ -52,7 +52,7 @@ app.get('/api/product/articles', (req, res) => {
 
 
 /// /api/product/article?id=HSHSHSKSK,JSJSJSJS,SDSDHHSHDS,JSJJSDJ&type=single
-app.get('api/product/articles_by_id', (req, res) => {
+app.get('/api/product/articles_by_id', (req, res) => {
     let type = req.query.type;
     let items = req.query.id;
 
@@ -60,7 +60,7 @@ app.get('api/product/articles_by_id', (req, res) => {
         let ids = req.query.id.split(',');
         items = [];
         items = ids.map( item => {
-            return mongoose.Types.ObjectId(item);
+            return mongoose.Types.ObjectId(item)
         })
     }    
 
@@ -129,7 +129,7 @@ app.post('/api/product/brand', auth, admin, (req, res) => {
 app.get('/api/product/brands', (req, res) => {
     Brand.find({}, (err, brands) => {
         if(err) return res.status(400).send(err);
-        res.status(200).send(brands);
+        res.status(200).send(brands)
     })
 })
 
@@ -158,7 +158,7 @@ app.post('/api/users/register', (req, res) => {
     user.save((err, doc) => {
         if(err) return res.json({ success:false, err });
         res.status(200).json({
-            success: true,
+            success: true
             //userdata: doc
         })
     })
@@ -169,10 +169,10 @@ app.post('/api/users/login', (req, res) => {
         //check password
         //generate a token (if password is correct for specific email)
     User.findOne({'email':req.body.email}, (err,user) => {
-        if(!user) return res.json({loginSuccess: false, message: 'Authorization failed, we did not found such an email'});
+        if(!user) return res.json({loginSuccess: false, message: 'Authoryzacja nie przebiegła pomyślnie, nie znaleźliśmy takiego emaila'});
 
         user.comparePassword(req.body.password, (err, isMatch) => {
-            if(!isMatch) return res.json({loginSuccess: false, message: 'Wrong password'});
+            if(!isMatch) return res.json({loginSuccess: false, message: 'Złe hasło'});
 
             user.generateToken((err, user) => {
                 if(err) return res.status(400).send(err);
@@ -200,5 +200,5 @@ app.get('/api/users/logout', auth, (req, res) => {
 const port = process.env.PORT || 3002;
 
 app.listen(port, ()=>{
-    console.log(`Server running at ${port}.`)
+    console.log(`Server running at ${port}`)
 })

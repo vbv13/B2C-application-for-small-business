@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Formfield from '../utils/Form/formfield';
+import FormField from '../utils/Form/FormField';
 import { update, generateData, isFormValid } from '../utils/Form/formActions';
 
 import Dialog from '@material-ui/core/Dialog';
@@ -22,8 +22,7 @@ class Register extends Component {
                     placeholder: 'Enter your name'
                 },
                 validation:{
-                    required: true,
-                    email: true
+                    required: true
                 },
                 valid: false,
                 touched: false,
@@ -127,7 +126,7 @@ class Register extends Component {
             })
         }else{
             this.setState({
-            formError: true
+                formError: true
             })
         }
         }
@@ -142,14 +141,14 @@ class Register extends Component {
                             <h2>Personal information</h2>
                             <div className="form_block_two">
                                     <div className="block">
-                                        <Formfield
+                                        <FormField
                                             id={'name'}
                                             formdata={this.state.formdata.name}
                                             change={(element)=> this.updateForm(element)}
                                         />
                                     </div>
                                     <div className="block">
-                                        <Formfield
+                                        <FormField
                                             id={'lastname'}
                                             formdata={this.state.formdata.lastname}
                                             change={(element)=> this.updateForm(element)}
@@ -157,7 +156,7 @@ class Register extends Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <Formfield
+                                    <FormField
                                         id={'email'}
                                         formdata={this.state.formdata.email}
                                         change={(element)=> this.updateForm(element)}
@@ -166,20 +165,30 @@ class Register extends Component {
                                 <h2>Verify password</h2>
                                 <div className="form_block_two">
                                     <div className="block">
-                                        <Formfield
+                                        <FormField
                                             id={'password'}
                                             formdata={this.state.formdata.password}
                                             change={(element)=> this.updateForm(element)}
                                         />
                                     </div>
                                     <div className="block">
-                                        <Formfield
+                                        <FormField
                                             id={'confirmPassword'}
                                             formdata={this.state.formdata.confirmPassword}
                                             change={(element)=> this.updateForm(element)}
                                         />
                                     </div>
-                                </div>                                
+                                </div>   
+                                <div>
+                                    { this.state.formError ?
+                                        <div className="error_label">
+                                            Sprawdź swoje dane
+                                        </div>
+                                    :null}
+                                    <button onClick={(event)=> this.submitForm(event)}>
+                                        Stwórz konto
+                                    </button>
+                                </div>                                                             
                             </form>
                         </div>
                     </div>

@@ -18,19 +18,19 @@ const links = [
 
 const UserLayout = (props) => {
 
-    const generateLinks = (links) => {
+    const generateLinks = (links) => (
         links.map((item, i)=>(
             <Link to={item.linkTo} key={i}>
                 {item.name}
             </Link>
         ))
-    }
+    )
 
     return (
         <div className='container'>
             <div className='user_container'>
                 <div className='user_left_nav'>
-                    <h2>My account</h2>
+                    <h2>Moje konto</h2>
                     <div className='links'>
                         { generateLinks(links) }
                     </div>

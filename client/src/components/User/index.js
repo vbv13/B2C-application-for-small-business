@@ -8,19 +8,29 @@ const UserDashboard = () => {
             <div>
                 
                 <div className='user_nfo_panel'>
-                    <h1>User information</h1>
+                    <h1>Informacje o użytkowniku</h1>
                     <div>
-                        <span>name</span>
-                        <span>lastname</span>
+                        <span>imie</span>
+                        <span>nazwisko</span>
                         <span>emial</span>
                     </div>
                     <MyButton
                         type='default'
-                        title='Edit account info'
+                        title='Edytuj'
                         linkTo='/user/user_profile'
                     />
                 </div>
+
+                <div className="user_nfo_panel">
+                        <h1>Historia zakupów</h1>
+                        <div className="user_product_block_wrapper">
+                            history
+                        </div>            
+                </div>
+
             </div>
+
+
         </UserLayout>
 
     );

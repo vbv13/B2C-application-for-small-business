@@ -26,7 +26,7 @@ class CollapseCheckbox extends Component {
         })
     }
 
-    handleAngle = () => {
+    handleAngle = () => (
         this.state.open ? 
             <FontAwesomeIcon
                 icon={faAngleUp}
@@ -37,9 +37,9 @@ class CollapseCheckbox extends Component {
                 icon={faAngleDown}
                 className='icon'
             />            
-    }
+    )
 
-    renderList = () => {
+    renderList = () => (
         this.props.list ?
             this.props.list.map((value) => (
                 <ListItem key={value._id} style={{padding:'10px 0'}}>
@@ -54,7 +54,7 @@ class CollapseCheckbox extends Component {
                 </ListItem>
             ))
         :null
-    }
+    )
 
     handleToggle = value => () => {
         const { checked } = this.state

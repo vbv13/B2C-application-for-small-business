@@ -26,7 +26,7 @@ class CollapseRadio extends Component {
         })
     }
 
-    handleAngle = () =>{
+    handleAngle = () => (
         this.state.open ? 
             <FontAwesomeIcon
                 icon={faAngleUp}
@@ -37,9 +37,9 @@ class CollapseRadio extends Component {
                 icon={faAngleDown}
                 className='icon'
             />      
-    }
+    )
 
-    renderList = () =>{
+    renderList = () =>(
         this.props.list ?
             this.props.list.map(value => (
                 <FormControlLabel
@@ -50,7 +50,7 @@ class CollapseRadio extends Component {
                 />
             ))
         :null
-    }
+    )
 
     handleChange = event => {
         this.props.handleFilters(event.target.value)

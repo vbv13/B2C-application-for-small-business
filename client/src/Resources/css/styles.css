@@ -251,7 +251,7 @@ header {
 }
 
 header .logo {
-    font-family: 'Monoton', cursive;
+    font-family: 'Affogato – Sans-Serif Typeface';
     color: #ffffff;
     font-size: 40px;
     padding: 11px 0px;
@@ -276,8 +276,8 @@ header .container .right{
 }
 header .container .right .top ,
 header .container .right .bottom {
-    text-transform: uppercase;
-    font-weight: 700;
+    font-family: 'Affogato – Sans-Serif Typeface';
+    font-weight: 600;
     text-align: right;
     color:#ffffff;
     font-size: 15px;
@@ -319,7 +319,7 @@ header .log_out_link {
 
 footer .logo {
     text-align: center;
-    font-family: 'Monoton', cursive;
+    font-family: 'Affogato – Sans-Serif Typeface';
     color: #ffffff;
     font-size: 40px;
     padding: 11px 0px;

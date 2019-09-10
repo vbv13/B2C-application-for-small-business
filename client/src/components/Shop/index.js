@@ -26,6 +26,12 @@ class Shop extends Component {
     componentDidMount(){
         this.props.dispatch(getBrands())
         this.props.dispatch(getSorts())
+
+        this.props.dispatch(getProductsToShop(
+            this.state.skip,
+            this.state.limit,
+            this.state.filters
+        ))
     }
 
     handlePrice = (value) => {
@@ -66,6 +72,18 @@ class Shop extends Component {
                 <div className='container'>
                     <div className='shop_wrapper'>
                         <div className='left'>
+                        <CollapseRadio
+                            initState={false}
+                            title="Cena"
+                            list={price}
+                            handleFilters={(filters) => this.handleFilters(filters, 'price')}
+                        />     
+                        <CollapseCheckbox
+                            initState={false}
+                            title="Rozmiar"
+                            list={size}
+                            handleFilters={(filters) => this.handleFilters(filters, 'size')}
+                        />                                                  
                         <CollapseCheckbox
                             initState={true}
                             title="Marka"
@@ -74,22 +92,10 @@ class Shop extends Component {
                         />
                         <CollapseCheckbox
                             initState={false}
-                            title="Rozmiar"
-                            list={size}
-                            handleFilters={(filters) => this.handleFilters(filters, 'size')}
-                        />
-                        <CollapseCheckbox
-                            initState={false}
                             title="Rodzaj"
                             list={products.sort}
                             handleFilters={(filters) => this.handleFilters(filters, 'sort')}
-                        />
-                        <CollapseRadio
-                            initState={false}
-                            title="Cena"
-                            list={price}
-                            handleFilters={(filters) => this.handleFilters(filters, 'price')}
-                        />                                                                        
+                        />                                                                     
                         </div>
                         <div className='right'>
                             right

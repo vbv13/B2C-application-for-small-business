@@ -30,6 +30,31 @@ export function getProdutsByArrival(){
     }    
 }
 
+export function getProductsToShop(skip, limit, filters=[], previousState=[]){
+    const data = {
+        limit,
+        skip,
+        filters
+    }
+
+    const request = axios.post(`${PRODUCT_SERVER}/shop`,data)
+                .then(response => {
+                    let newState = [
+                        ...previousState,
+                        ...response.data.articles
+                    ];
+                    return {
+                        size: response.data.size,
+                        articles: newState
+                    }
+                })
+
+    return {
+        type: GET_PRODUCTS_TO_SHOP,
+        payload: request
+    }
+}
+
 //Kategorie
 
 export function getBrands(){

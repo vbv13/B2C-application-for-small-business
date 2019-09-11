@@ -4,11 +4,15 @@ import PageTop from '../utils/page_top';
 import { size, price } from '../utils/Form/fixed_categories'
 
 import { connect } from 'react-redux';
-import { getBrands, getSorts } from '../../actions/products_actions'
+import { getProductsToShop, getBrands, getSorts } from '../../actions/products_actions'
 
 import LoadmoreCards from '../Shop/loadmoreCards';
 import CollapseCheckbox from '../utils/collapseCheckbox';
 import CollapseRadio from '../utils/collapseRadio';
+
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faBars from '@fortawesome/fontawesome-free-solid/faBars';
+import faTh from '@fortawesome/fontawesome-free-solid/faTh';
 
 class Shop extends Component {
 

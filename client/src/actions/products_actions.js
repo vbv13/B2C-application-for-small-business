@@ -76,24 +76,3 @@ export function getSorts(){
         payload: request
     }     
 }
-
-export function getProductsToShop(skip, limit, filters=[], previousState=[]){
-    const data = {
-        skip,
-        limit, 
-        filters
-    }
-
-    const request = axios.post(`${PRODUCT_SERVER}/shop`)
-        .then(response => {
-            return {
-                size: response.data.size,
-                articles: response.data.articles
-            }
-        })
-
-    return {
-        type: GET_PRODUCTS_TO_SHOP,
-        payload: request
-    }
-}

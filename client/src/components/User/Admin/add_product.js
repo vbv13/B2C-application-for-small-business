@@ -8,6 +8,7 @@ import FileUpload from '../../utils/Form/fileupload';
 
 import { connect } from 'react-redux';
 import Formfield from '../../utils/Form/formfield';
+import { getSorts } from '../../../actions/products_actions';
 
 class AddProduct extends Component {
 
@@ -188,6 +189,12 @@ class AddProduct extends Component {
         }
     }
 
+    updateFields = (newFormdata) => {
+        this.setState({
+            formdata: newFormdata
+        })
+    }
+
     updateForm = (element) => {
         const newFormdata = update(element, this.state.formdata, 'products')
         this.setState({
@@ -217,10 +224,14 @@ class AddProduct extends Component {
         const formdata = this.state.formdata;
 
         this.props.dispatch(getBrands()).then(response => {
-            const newFormdata = populateOptionFields()
-
+            const newFormdata = populateOptionFields(formdata, this.props.products.brands, 'brand')
+            this.updateFields(newFormdata)
         })
 
+        this.props.dispatch(getSorts()).then(response => {
+            const newFormdata = populateOptionFields(formdata, this.props.products.sorts, 'sorts')
+            this.updateFields(newFormdata)
+        })
 
     }
 

@@ -7,8 +7,7 @@ import FileUpload from '../../utils/Form/fileupload';
 
 
 import { connect } from 'react-redux';
-import Formfield from '../../utils/Form/formfield';
-import { getSorts } from '../../../actions/products_actions';
+import { getBrands, getSorts, addProduct, clearProduct } from '../../../actions/products_actions';
 
 class AddProduct extends Component {
 

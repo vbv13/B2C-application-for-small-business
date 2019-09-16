@@ -46,14 +46,14 @@ const Formfield = ({formdata, change, id}) => {
                         >
                             <option value="">Wybierz coś</option>
                             {
-                                formdata.config.options.map(item => {
+                                formdata.config.options.map(item => (
                                     <option
                                         key={item.key}
                                         value={item.key}
                                     >
                                         {item.value}
                                     </option>
-                                })
+                                ))
                             }
                         </select>
                         {showError()}

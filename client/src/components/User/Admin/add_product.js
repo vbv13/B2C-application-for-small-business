@@ -143,9 +143,9 @@ class AddProduct extends Component {
                     label: 'Rozmiar',
                     name: 'size_input',
                     options:[
-                        {key:male,value:male},
-                        {key:srednie,value:srednie},
-                        {key:duze,value:duze},
+                        {key:1,value:1},
+                        {key:2,value:2},
+                        {key:3,value:3},
                     ]
                 },
                 validation:{

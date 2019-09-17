@@ -153,7 +153,7 @@ app.post('/api/product/sort', auth, admin, (req, res) => {
 app.get('/api/product/sorts', (req, res) => {
     Sort.find({}, (err, sorts) => {
         if(err) return res.status(400).send(err);
-        res.status(200).send(sortes);
+        res.status(200).send(sorts);
     })
 })
 

@@ -4,30 +4,30 @@ import { connect } from 'react-redux';
 
 const links = [
     {
-        name: 'My account',
+        name: 'Moje Konto',
         linkTo: '/user/dashboard'
     },
     {
-        name: 'User information',
+        name: 'Informacje o użytkowniku',
         linkTo: '/user/user_profile'
     },
     {
-        name: 'My Cart',
+        name: 'Mój koszyk',
         linkTo: '/user/cart'
     },
 ]
 
 const admin = [
     {
-        name: 'Site info',
+        name: 'Informacje o stronie',
         linkTo: '/admin/site_info'
     },
     {
-        name: 'Add products',
+        name: 'Dodawaj produkty',
         linkTo: '/admin/add_product'
     },
     {
-        name: 'Manage categories',
+        name: 'Zarządzaj kategoriami',
         linkTo: '/admin/manage_categories'
     }
 ]
@@ -52,7 +52,7 @@ const UserLayout = (props) => {
                     </div>
                     { props.user.userData.isAdmin ?
                         <div>
-                            <h2>administrator</h2>
+                            <h2>Administrator</h2>
                             <div className='links'>
                                 { generateLinks(admin) }
                             </div>

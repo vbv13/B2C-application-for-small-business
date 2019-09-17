@@ -24,7 +24,7 @@ const UserDashboard = ({user}) => {
                 <div className="user_nfo_panel">
                         <h1>Historia zakupów</h1>
                         <div className="user_product_block_wrapper">
-                            history
+                            historia
                         </div>            
                 </div>
 

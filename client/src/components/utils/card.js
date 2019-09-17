@@ -7,12 +7,12 @@ class Card extends Component {
         if(images.length > 0){
             return images[0].url
         } else {
-            return 'images/image_not_found.png'
+            return '/images/image_not_found.png'
         }
     }
 
     render() {
-        const props = this.props
+        const props = this.props;
         return (
             <div className={`card_item_wrapper ${props.grid}`}>
                 <div 
@@ -28,10 +28,12 @@ class Card extends Component {
                             <div className="name">{props.name}</div>
                             <div className="name">${props.price}</div>
                         </div>
-                </div>
+                
                 { props.grid ?
                         <div className="description">
-                                    kshdjshdsdjshd
+                            <p>
+                                {props.description}
+                            </p>
                         </div>
                         :null
                 }
@@ -55,8 +57,8 @@ class Card extends Component {
                                 }}
                             />
                         </div>
-                </div>                
-                                
+                    </div>                
+                </div>               
             </div>
         );
     }

@@ -23,7 +23,7 @@ export function getProductsBySell(){
         }
 }
 
-export function getProdutsByArrival(){
+export function getProductsByArrival(){
     const request = axios.get(`${PRODUCT_SERVER}/articles?sortBy=createdAt&order=desc&limit=4`)
         .then(response => response.data)
 

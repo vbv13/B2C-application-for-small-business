@@ -20,7 +20,7 @@ class FileUpload extends Component {
         const config = {
             header: {'content-type':'multipart/form-data'}
         }
-        formData.append('file', files[0])
+        formData.append('file', files[0])   //cause we have one file
         Axios.post('/api/users/uploadimage',formData,config)
             .then(response => {
                 console.log(response.data)
@@ -32,7 +32,7 @@ class FileUpload extends Component {
                         response.data
                     ]
                 },()=>{
-                    this.props.imagesHandler(this.state.uploadedFiles)
+                    this.props.imagesHandler(this.state.uploadedFiles)  //we are sending it back to parent component add_product
             })
         })
         //wez formdata, dołącz do niego plik

@@ -15,6 +15,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());     //to parse JSON, whenever we get a request, we gonna be able to read it
 app.use(cookieParser());
 
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET
+})
+
 //Models
 const { User }  = require('./models/user');
 const { Brand } = require('./models/brand');

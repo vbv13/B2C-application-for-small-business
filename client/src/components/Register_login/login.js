@@ -18,7 +18,7 @@ class Login extends Component {
                 config:{
                     name: 'email_input',
                     type: 'email',
-                    placeholder: 'Enter your email'
+                    placeholder: 'Wprowadź swojego maila'
                 },
                 validation:{
                     required: true,
@@ -34,7 +34,7 @@ class Login extends Component {
                 config:{
                     name: 'password_input',
                     type: 'password',
-                    placeholder: 'Enter your password'
+                    placeholder: 'Wprowadź swoje hasło'
                 },
                 validation:{
                     required: true

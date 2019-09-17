@@ -10,7 +10,7 @@ import {
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
-import { func } from 'prop-types';
+
 
 export function getProductsBySell(){
     //?sortBy=sold&order=desc&limit=100

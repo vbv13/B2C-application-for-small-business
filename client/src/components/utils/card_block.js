@@ -11,7 +11,7 @@ const CardBlock = (props) => {
                     {...card}
                 />
             ))
-        : null
+        :null
     )
  
     return (

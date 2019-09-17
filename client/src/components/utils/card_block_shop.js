@@ -5,13 +5,13 @@ const CardBlockShop = (props) => {
 
     const renderCards = () => (
         props.list ? 
-            props.list.map(card=>(
-                <Card
-                    key={card._id}
-                    {...card}
-                    grid={props.grid}
-                />
-            ))
+            Array.from(props.list).map(card=>(
+                    <Card
+                        key={card._id}
+                        {...card}
+                        grid={props.grid}
+                    />
+                ))
         :null
     )
 

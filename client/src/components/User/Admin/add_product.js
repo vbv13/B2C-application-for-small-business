@@ -67,7 +67,7 @@ class AddProduct extends Component {
                 showlabel: true
             },
             brand: {
-                element: 'select',
+                element: 'textarea',
                 value: '',
                 config:{
                     label: 'Marka produktu',
@@ -121,7 +121,7 @@ class AddProduct extends Component {
                 showlabel: true
             },
             sorts: {
-                element: 'select',
+                element: 'textarea',
                 value: '',
                 config:{
                     label: 'Sort',
@@ -219,21 +219,6 @@ class AddProduct extends Component {
         }, 2666)
     }
 
-    componentDidMount(){
-        const formdata = this.state.formdata;
-
-        this.props.dispatch(getBrands()).then(response => {
-            const newFormdata = populateOptionFields(formdata, this.props.products.brands, 'brand')
-            this.updateFields(newFormdata)
-        })
-
-        this.props.dispatch(getSorts()).then(response => {
-            const newFormdata = populateOptionFields(formdata, this.props.products.sorts, 'sorts')
-            this.updateFields(newFormdata)
-        })
-
-    }
-
     submitForm = (event) => {
         event.preventDefault();
 
@@ -245,12 +230,33 @@ class AddProduct extends Component {
                 if(this.props.products.addProduct.success){
                     this.resetFieldHandler();
                 } else {
-
+                    this.setState({
+                        formError: true
+                    })
                 }
             })
         } else {
-
+            this.setState({
+                formError: true
+            })
         }
+    }    
+
+    componentDidMount(){
+        const formdata = this.state.formdata;
+
+        this.props.dispatch(getBrands()).then(response => {
+            //console.log(this.props.products.brands) //zwraca undefined (zamiast arraya z json)
+            const newFormdata = populateOptionFields(formdata, this.props.products.brands, 'brand')
+            this.updateFields(newFormdata)
+        })
+
+        this.props.dispatch(getSorts()).then(response => {
+            //console.log(this.props.products.sorts)    //zwraca pusty array zamiast zapełnionego arraya, objektami z pliku z folderu json
+            const newFormdata = populateOptionFields(formdata, this.props.products.sorts, 'sorts')
+            this.updateFields(newFormdata)
+        })
+
     }
 
     imagesHandler = (images) => {

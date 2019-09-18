@@ -67,7 +67,7 @@ class AddProduct extends Component {
                 showlabel: true
             },
             brand: {
-                element: 'textarea',
+                element: 'select',
                 value: '',
                 config:{
                     label: 'Marka produktu',
@@ -121,7 +121,7 @@ class AddProduct extends Component {
                 showlabel: true
             },
             sorts: {
-                element: 'textarea',
+                element: 'select',
                 value: '',
                 config:{
                     label: 'Sort',
@@ -246,13 +246,13 @@ class AddProduct extends Component {
         const formdata = this.state.formdata;
 
         this.props.dispatch(getBrands()).then(response => {
-            //console.log(this.props.products.brands) //zwraca undefined (zamiast arraya z json)
+            console.log(this.props.products.brands) //zwraca undefined (zamiast arraya z json)
             const newFormdata = populateOptionFields(formdata, this.props.products.brands, 'brand')
             this.updateFields(newFormdata)
         })
 
         this.props.dispatch(getSorts()).then(response => {
-            //console.log(this.props.products.sorts)    //zwraca pusty array zamiast zapełnionego arraya, objektami z pliku z folderu json
+            console.log(this.props.products.sorts)    //zwraca pusty array zamiast zapełnionego arraya, objektami z pliku z folderu json
             const newFormdata = populateOptionFields(formdata, this.props.products.sorts, 'sorts')
             this.updateFields(newFormdata)
         })

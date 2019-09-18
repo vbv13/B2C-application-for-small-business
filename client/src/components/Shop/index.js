@@ -6,7 +6,7 @@ import { size, price } from '../utils/Form/fixed_categories'
 import { connect } from 'react-redux';
 import { getProductsToShop, getBrands, getSorts } from '../../actions/products_actions'
 
-import LoadmoreCards from '../Shop/loadmoreCards';
+import LoadmoreCards from './loadmoreCards';
 import CollapseCheckbox from '../utils/collapseCheckbox';
 import CollapseRadio from '../utils/collapseRadio';
 
@@ -40,17 +40,17 @@ class Shop extends Component {
     }
 
     handlePrice = (value) => {
-        const data = price
-        let array = []
+        const data = price;
+        let array = [];
 
         for(let key in data){
             if(data[key]._id === parseInt(value,10)){
                 array = data[key].array
             }
-            return array
         }
-        
+        return array;
     }
+
 
     handleFilters = (filters, category) => {
         const newFilters = {...this.state.filters}

@@ -112,30 +112,30 @@ class Shop extends Component {
                 <div className='container'>
                     <div className='shop_wrapper'>
                         <div className='left'>
-                        <CollapseRadio
-                            initState={false}
-                            title="Cena"
-                            list={price}
-                            handleFilters={(filters) => this.handleFilters(filters, 'price')}
-                        />     
-                        <CollapseCheckbox
-                            initState={false}
-                            title="Rozmiar"
-                            list={size}
-                            handleFilters={(filters) => this.handleFilters(filters, 'size')}
-                        />                                                  
                         <CollapseCheckbox
                             initState={true}
                             title="Marka"
                             list={products.brands}
                             handleFilters={(filters) => this.handleFilters(filters, 'brand')}
                         />
+                         <CollapseCheckbox
+                            initState={false}
+                            title="Rozmiar"
+                            list={size}
+                            handleFilters={(filters) => this.handleFilters(filters, 'size')}
+                        />   
                         <CollapseCheckbox
                             initState={false}
                             title="Rodzaj"
-                            list={products.sort}
+                            list={products.sorts}
                             handleFilters={(filters) => this.handleFilters(filters, 'sort')}
-                        />                                                                     
+                        />                                                
+                        <CollapseRadio
+                            initState={false}
+                            title="Cena"
+                            list={price}
+                            handleFilters={(filters) => this.handleFilters(filters, 'price')}
+                        />                                                     
                         </div>
                         <div className='right'>
                             right

@@ -31,9 +31,9 @@ const { Product } = require('./models/product');
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
 
-//=====================
+
 //                 PRODUCTS
-//=====================
+
 
 app.post('/api/product/shop', (req, res)=>{
 
@@ -56,11 +56,12 @@ app.post('/api/product/shop', (req, res)=>{
         }
     }
 
+    findArgs['publish'] = true;
 
     Product.
     find(findArgs).
     populate('brand').
-    populate('sorts').
+    populate('sort').
     sort([[sortBy, order]]).
     skip(skip).
     limit(limit).
@@ -88,7 +89,7 @@ app.get('/api/product/articles', (req, res) => {
     Product.
     find().
     populate('brand').
-    populate('wood').
+    populate('sort').
     sort([[sortBy, order]]).
     limit(limit).
     exec((err, articles) => {
@@ -112,7 +113,7 @@ app.get('/api/product/articles_by_id', (req, res) => {
     }    
 
     Product
-    .find({ 'id': {$in:items}})      //such entry cause it can be one item or array of multiple items -we don't know
+    .find({ '_id': {$in:items}})      //such entry cause it can be one item or array of multiple items -we don't know
     .populate('brand')
     .populate('sort')
     .exec((err, docs) => {
@@ -134,9 +135,9 @@ app.post('/api/product/article', auth, admin, (req, res) => {
     })
 });
 
-//=====================
+
 //                 SORTS
-//=====================
+
 
 app.post('/api/product/sort', auth, admin, (req, res) => {
     const sort = new Sort(req.body);
@@ -157,9 +158,9 @@ app.get('/api/product/sorts', (req, res) => {
     })
 })
 
-//=====================
+
 //                 BRAND
-//=====================
+
 
 app.post('/api/product/brand', auth, admin, (req, res) => {
     const brand = new Brand(req.body);
@@ -182,9 +183,9 @@ app.get('/api/product/brands', (req, res) => {
 
 
 
-//=====================
+
 //                 USERS
-//=====================
+
 
 app.get('/api/users/auth', auth, (req, res) => {
     res.status(200).json({

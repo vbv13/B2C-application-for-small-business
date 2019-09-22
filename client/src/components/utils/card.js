@@ -42,7 +42,7 @@ class Card extends Component {
                             <MyButton
                                 type="default"
                                 altClass="card_link"
-                                title="View product"
+                                title="Szczegóły"
                                 linkTo={`/product_detail/${props._id}`}
                                 addStyles={{
                                     margin: '10px 0 0 0'
@@ -53,7 +53,7 @@ class Card extends Component {
                             <MyButton
                                 type="bag_link"
                                 runAction={()=>{
-                                    console.log('added to cart')
+                                    console.log('dodane do koszyka')
                                 }}
                             />
                         </div>

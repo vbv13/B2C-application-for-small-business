@@ -15,19 +15,19 @@ export default function(state={}, action) {
         case GET_PRODUCTS_BY_ARRIVAL:
             return { ...state, byArrival: action.payload}
         case GET_BRANDS:
-            return { ...state, brand: action.payload}
+            return { ...state, brands: action.payload}
         case GET_SORTS:
             return { ...state, sorts: action.payload}    
         case GET_PRODUCTS_TO_SHOP:
             return {
                 ...state,
-                toShop: action.payload,
+                toShop: action.payload.articles,
                 toShopSize: action.payload.size
             } 
         case ADD_PRODUCT:
             return { ...state, addProduct: action.payload }   
         case CLEAR_PRODUCT:
-            return { ...state, clearProduct: action.payload }    
+            return { ...state, addProduct: action.payload }    
         default:
             return state;
     }

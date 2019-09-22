@@ -36,7 +36,7 @@ const productSchema = mongoose.Schema({
             ref: 'Sort',
             required: true            
         },
-        frets: {
+        size: {
             required: true,
             type: Number
         },

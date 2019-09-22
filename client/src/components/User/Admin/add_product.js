@@ -5,9 +5,9 @@ import FormField from '../../utils/Form/formfield';
 import { update, generateData, isFormValid, populateOptionFields,resetFields} from '../../utils/Form/formActions';
 import FileUpload from '../../utils/Form/fileupload';
 
-
 import { connect } from 'react-redux';
-import { getBrands, getSorts, addProduct, clearProduct } from '../../../actions/products_actions';
+import { getBrands, getSorts,addProduct, clearProduct } from '../../../actions/products_actions';
+
 
 class AddProduct extends Component {
 
@@ -89,8 +89,8 @@ class AddProduct extends Component {
                     label: 'Wysyłka',
                     name: 'shipping_input',
                     options:[
-                        {key:true,value:'Yes'},
-                        {key:false,value:'No'},
+                        {key:true,value:'Tak'},
+                        {key:false,value:'Nie'},
                     ]
                 },
                 validation:{
@@ -105,11 +105,11 @@ class AddProduct extends Component {
                 element: 'select',
                 value: '',
                 config:{
-                    label: 'Dostępne w zapasach',
+                    label: 'Dostępne w magazynie',
                     name: 'available_input',
                     options:[
-                        {key:true,value:'Yes'},
-                        {key:false,value:'No'},
+                        {key:true,value:'Tak'},
+                        {key:false,value:'Nie'},
                     ]
                 },
                 validation:{
@@ -124,7 +124,7 @@ class AddProduct extends Component {
                 element: 'select',
                 value: '',
                 config:{
-                    label: 'Sort',
+                    label: 'Rodzaj',
                     name: 'sort_input',
                     options:[]
                 },
@@ -143,9 +143,9 @@ class AddProduct extends Component {
                     label: 'Rozmiar',
                     name: 'size_input',
                     options:[
-                        {key:1,value:1},
-                        {key:2,value:2},
-                        {key:3,value:3},
+                        {key:1,value:'małe'},
+                        {key:2,value:'średnie'},
+                        {key:3,value:'duże'}
                     ]
                 },
                 validation:{
@@ -188,6 +188,7 @@ class AddProduct extends Component {
         }
     }
 
+
     updateFields = (newFormdata) => {
         this.setState({
             formdata: newFormdata
@@ -195,7 +196,7 @@ class AddProduct extends Component {
     }
 
     updateForm = (element) => {
-        const newFormdata = update(element, this.state.formdata, 'products')
+        const newFormdata = update(element,this.state.formdata,'products');
         this.setState({
             formError: false,
             formdata: newFormdata
@@ -203,36 +204,33 @@ class AddProduct extends Component {
     }
 
     resetFieldHandler = () => {
-        const newFormdata = resetFields(this.state.formdata, 'products')
+        const newFormData = resetFields(this.state.formdata,'products');
 
         this.setState({
-            formdata: newFormdata,
-            formSuccess: true
-        })
-
-        setTimeout(()=> {
+            formdata: newFormData,
+            formSuccess:true
+        });
+        setTimeout(()=>{
             this.setState({
                 formSuccess: false
-            }, ()=>{
+            },()=>{
                 this.props.dispatch(clearProduct())
             })
-        }, 2666)
+        },3000)
     }
 
-    submitForm = (event) => {
+    submitForm= (event) =>{
         event.preventDefault();
+        
+        let dataToSubmit = generateData(this.state.formdata,'products');
+        let formIsValid = isFormValid(this.state.formdata,'products')
 
-        let dataToSubmit = generateData(this.state.formdata, 'products')
-        let validForm = isFormValid(this.state.formdata, 'products')
-
-        if(validForm){
-            this.props.dispatch(addProduct(dataToSubmit)).then(()=> {
-                if(this.props.products.addProduct.success){
+        if(formIsValid){
+            this.props.dispatch(addProduct(dataToSubmit)).then(()=>{
+                if( this.props.products.addProduct.success){
                     this.resetFieldHandler();
-                } else {
-                    this.setState({
-                        formError: true
-                    })
+                }else{
+                    this.setState({formError: true})
                 }
             })
         } else {
@@ -240,47 +238,47 @@ class AddProduct extends Component {
                 formError: true
             })
         }
-    }    
+    }
+
 
     componentDidMount(){
         const formdata = this.state.formdata;
 
-        this.props.dispatch(getBrands()).then(response => {
+        this.props.dispatch(getBrands()).then( response => {
             console.log(this.props.products.brands) 
-            const newFormdata = populateOptionFields(formdata, this.props.products.brands, 'brand')
-            this.updateFields(newFormdata)
+            const newFormData = populateOptionFields(formdata,this.props.products.brands,'brand');
+            this.updateFields(newFormData)
         })
 
-        this.props.dispatch(getSorts()).then(response => {
-            console.log(this.props.products.sorts)  
-            const newFormdata = populateOptionFields(formdata, this.props.products.sorts, 'sort')
-            this.updateFields(newFormdata)
+        this.props.dispatch(getSorts()).then( response => {
+            console.log(this.props.products.sorts) 
+            const newFormData = populateOptionFields(formdata,this.props.products.sorts,'sort');
+            this.updateFields(newFormData)
         })
-
     }
 
     imagesHandler = (images) => {
-        const newFormdata = {
+        const newFormData = {
             ...this.state.formdata
         }
-
-        newFormdata['images'].value = images
-        newFormdata['images'].valid = true
+        newFormData['images'].value = images;
+        newFormData['images'].valid = true;
 
         this.setState({
-            formdata: newFormdata
+            formdata:  newFormData
         })
     }
 
     render() {
         return (
             <UserLayout>
-            <div>
-                <h1>Dodaj produkty</h1>
+                <div>
+                    <h1>Dodaj produkt</h1>
+                    
+                    <form onSubmit={(event)=> this.submitForm(event)}>
 
-                <form onSubmit={(event)=> this.submitForm(event)}>
                         <FileUpload
-                            imagesHandler={(images) => this.imagesHandler(images)}
+                            imagesHandler={(images)=> this.imagesHandler(images)}
                             reset={this.state.formSuccess}
                         />
 
@@ -301,6 +299,7 @@ class AddProduct extends Component {
                             formdata={this.state.formdata.price}
                             change={(element) => this.updateForm(element)}
                         />
+
                         <div className="form_devider"></div>
 
                         <FormField
@@ -315,11 +314,13 @@ class AddProduct extends Component {
                             change={(element) => this.updateForm(element)}
                         />
 
-                        <FormField
+                         <FormField
                             id={'available'}
                             formdata={this.state.formdata.available}
                             change={(element) => this.updateForm(element)}
                         />
+
+                        <div className="form_devider"></div>
 
                         <FormField
                             id={'sort'}
@@ -341,27 +342,27 @@ class AddProduct extends Component {
                             change={(element) => this.updateForm(element)}
                         />
 
-                        <div className="form_devider"></div> 
-
                         {this.state.formSuccess ?
-                            <div className='form_success'>
+                            <div className="form_success">
                                 Udało się! Jest super
                             </div>
                         :null}
 
                         {this.state.formError ?
-                            <div className='error_label'>
+                            <div className="error_label">
                                 Spokojnie, sprawdź wprowadzone informacje 
-                            </div>
-                        :null}
+                                        </div>
+                            : null}
                         <button onClick={(event) => this.submitForm(event)}>
-                            Dodaj produkt
+                        Dodaj produkt
                         </button>
 
-                </form>
 
-            </div>
+                    </form>
+
+                </div>
             </UserLayout>
+            
         );
     }
 }
@@ -371,5 +372,6 @@ const mapStateToProps = (state) => {
         products: state.products
     }
 }
+
 
 export default connect(mapStateToProps)(AddProduct);

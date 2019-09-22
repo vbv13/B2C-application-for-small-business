@@ -120,7 +120,7 @@ class AddProduct extends Component {
                 validationMessage:'',
                 showlabel: true
             },
-            sorts: {
+            sort: {
                 element: 'select',
                 value: '',
                 config:{
@@ -246,14 +246,14 @@ class AddProduct extends Component {
         const formdata = this.state.formdata;
 
         this.props.dispatch(getBrands()).then(response => {
-            console.log(this.props.products.brands) //zwraca undefined (zamiast arraya z json)
+            console.log(this.props.products.brands) 
             const newFormdata = populateOptionFields(formdata, this.props.products.brands, 'brand')
             this.updateFields(newFormdata)
         })
 
         this.props.dispatch(getSorts()).then(response => {
-            console.log(this.props.products.sorts)    //zwraca pusty array zamiast zapełnionego arraya, objektami z pliku z folderu json
-            const newFormdata = populateOptionFields(formdata, this.props.products.sorts, 'sorts')
+            console.log(this.props.products.sorts)  
+            const newFormdata = populateOptionFields(formdata, this.props.products.sorts, 'sort')
             this.updateFields(newFormdata)
         })
 
@@ -278,7 +278,7 @@ class AddProduct extends Component {
             <div>
                 <h1>Dodaj produkty</h1>
 
-                <form onSubmit={(event)=>this.submitForm(event)}>
+                <form onSubmit={(event)=> this.submitForm(event)}>
                         <FileUpload
                             imagesHandler={(images) => this.imagesHandler(images)}
                             reset={this.state.formSuccess}
@@ -322,8 +322,8 @@ class AddProduct extends Component {
                         />
 
                         <FormField
-                            id={'sorts'}
-                            formdata={this.state.formdata.sorts}
+                            id={'sort'}
+                            formdata={this.state.formdata.sort}
                             change={(element) => this.updateForm(element)}
                         />
 

@@ -14,7 +14,7 @@ class FileUpload extends Component {
         }
     }
 
-    onDrop = (files = []) => {
+    onDrop = (files) => {
         this.setState({uploading: true})
         let formData = new FormData()
         const config = {

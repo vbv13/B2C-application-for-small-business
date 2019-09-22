@@ -2,8 +2,10 @@ import axios from 'axios';
 import {
     GET_PRODUCTS_BY_SELL,
     GET_PRODUCTS_BY_ARRIVAL,
+    ADD_BRAND,
     GET_BRANDS,
     GET_SORTS,
+    ADD_SORT,
     GET_PRODUCTS_TO_SHOP,
     ADD_PRODUCT,
     CLEAR_PRODUCT
@@ -77,6 +79,24 @@ export function clearProduct(){
 
 //Kategorie
 
+export function addBrand(dataToSubmit, existingBrands){
+    const request = axios.post(`${PRODUCT_SERVER}/brand`,dataToSubmit)
+    .then(response=>{
+        let brands = [
+            ...existingBrands,
+            response.data.brand
+        ];
+        return {
+            success: response.data.success,
+            brands
+        }
+    });
+    return {
+        type: ADD_BRAND,
+        payload: request
+    }
+}
+
 export function getBrands(){
     const request = axios.get(`${PRODUCT_SERVER}/brands`)
         .then(response => response.data)
@@ -87,6 +107,25 @@ export function getBrands(){
     }     
 }
 
+export function addSort(dataToSubmit, existingsorts){
+    const request = axios.post(`${PRODUCT_SERVER}/sort`,dataToSubmit)
+    .then(response=>{
+        let sorts = [
+            ...existingsorts,
+            response.data.sort
+        ];
+        return {
+            success: response.data.success,
+            sorts
+        }
+    });
+    return {
+        type: ADD_SORT,
+        payload: request
+    }
+}
+
+
 export function getSorts(){
     const request = axios.get(`${PRODUCT_SERVER}/sorts`)
         .then(response => response.data)
@@ -96,3 +135,4 @@ export function getSorts(){
         payload: request
     }     
 }
+

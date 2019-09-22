@@ -5,8 +5,10 @@
 
  export const GET_PRODUCTS_BY_SELL = 'get_products_by_sell';
  export const GET_PRODUCTS_BY_ARRIVAL = 'get_products_by_arrival';
+ export const ADD_BRAND = 'add_brand';
  export const GET_BRANDS = 'get_brands';
  export const GET_SORTS =  'get_sorts';
+ export const ADD_SORT = 'add_sort';
  export const GET_PRODUCTS_TO_SHOP = 'get_products_to_shop';
  export const ADD_PRODUCT = 'add_product';
  export const CLEAR_PRODUCT = 'clear_product';

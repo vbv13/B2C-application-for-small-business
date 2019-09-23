@@ -22,7 +22,7 @@ export default function(state={}, action) {
                     ...state.userData,
                     cart: action.payload
                 }
-            }            
+            }           
         default:
             return state;
     }

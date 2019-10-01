@@ -32,14 +32,14 @@ class UserCart extends Component {
                 this.props.dispatch(getCartItems(cartItems,user.userData.cart))
                 .then(()=>{
                     if(this.props.user.cartDetail.length > 0){
-                        this.calculateTotal(this.props.user.cartDetail);
+                        this.calculateTotalCartValue(this.props.user.cartDetail);
                     }
                 })
             }
         }
     }
 
-    calculateTotal = (cartDetail) => {
+    calculateTotalCartValue = (cartDetail) => {
         let total = 0;
 
         cartDetail.forEach(item=>{
@@ -61,7 +61,7 @@ class UserCart extends Component {
                     showTotal: false
                 })
             } else{
-                this.calculateTotal(this.props.user.cartDetail)
+                this.calculateTotalCartValue(this.props.user.cartDetail)
             }
         })
     }

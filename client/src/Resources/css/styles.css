@@ -93,9 +93,9 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-/*============================
-            FORM
-==============================*/
+/*
+    Form
+*/
 
 input {
     font-size: 15px;
@@ -179,9 +179,9 @@ select {
 }
 
 
-/*============================
-            BUTTONS
-==============================*/
+/*
+    Buttons
+*/
 .link_default {
     text-transform: uppercase;
     padding: 10px;
@@ -229,9 +229,9 @@ select {
 }
 
 
-/*============================
-        PAGE TOP
-==============================*/
+/*
+    Page Top
+*/
 
 .page_top {
     border-bottom: 1px solid #999592;   
@@ -240,9 +240,9 @@ select {
 }
 
 
-/*============================
-            HEADER
-==============================*/
+/*
+    Header
+*/
 header {
     position: fixed;
     z-index: 999;
@@ -311,9 +311,9 @@ header .log_out_link {
 }
 
 
-/*============================
-            FOOTER
-==============================*/
+/*
+    Footer
+*/
 
 
 
@@ -358,9 +358,9 @@ footer .business_nfo .nfo {
 
 
 
-/*============================
-        FEATURED IMAGE
-==============================*/
+/*
+    Featured Image
+*/
 
 .featured_container .featured_image {
     position:relative;
@@ -393,9 +393,9 @@ footer .business_nfo .nfo {
     margin-top: 10px;
 }
 
-/*============================
-        FEATURED PROMOTION
-==============================*/
+/*
+    Featured Promotion
+*/
 
 .home_promotion .home_promotion_img {
     height: 400px;
@@ -432,9 +432,9 @@ footer .business_nfo .nfo {
 }
 
 
-/*============================
-        CARD BLOCK
-==============================*/
+/*
+    Card Block
+*/
 
 .card_block {
     margin: 110px 0px;
@@ -453,9 +453,9 @@ footer .business_nfo .nfo {
     margin-bottom: 20px;
 }
 
-/*============================
-        CARD ITEM
-==============================*/
+/*
+    Card Item
+*/
 
 .card_item_wrapper {
     flex-grow: 1;
@@ -562,9 +562,9 @@ footer .business_nfo .nfo {
     padding: 10px 20px 0px 15px;
 }
 
-/*============================
-        SHOP
-==============================*/
+/*
+    Shop
+*/
 
 .shop_wrapper {
     display:flex;
@@ -599,9 +599,9 @@ footer .business_nfo .nfo {
 }
 
 
-/*============================
-        PRODUCT DETAIL
-==============================*/
+/*
+    Product Detail
+*/
 
 .product_detail_wrapper {
     display: flex;   
@@ -722,9 +722,9 @@ footer .business_nfo .nfo {
     margin: 10px 0px;
 }
 
-/*=============================
-         REGISTER LOGIN
-===============================*/
+/*
+    Register Login
+*/
 
 .register_login_container {
     display: flex;
@@ -754,9 +754,9 @@ footer .business_nfo .nfo {
     width: 90%;
 }
 
-/*=============================
-         USER
-===============================*/
+/*
+    User
+*/
 
 .user_container {
     display:flex;
@@ -770,7 +770,7 @@ footer .business_nfo .nfo {
 
 .user_container .user_left_nav .links a {
     display: block;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #040000;
     font-size: 20px;
     font-weight: 300;
     padding: 10px 0px;
@@ -837,9 +837,9 @@ footer .business_nfo .nfo {
     margin-top: 50px;
 }
 
-/*=============================
-         ADMIN
-===============================*/
+/*
+    Administrator
+*/
 
 .admin_category_wrapper {
     padding-bottom: 50px;
